@@ -7,6 +7,7 @@ export const SearchProvider = ({ children }) => {
     const [searchResults, setSearchResults] = useState([]);
     const[searchMode, setSearchMode] = useState('name'); //'name' or 'ingredient'
     const[hasSearched, setHasSearched] = useState(false);
+    const [groceryList, setGroceryList] = useState([]);
 
     const clearSearch = () => {
         setSearchQuery('');
@@ -15,6 +16,31 @@ export const SearchProvider = ({ children }) => {
         setSearchMode('name');
     };
 
+    const addToGroceryList = (ingredients, recipeName) => {
+        setGroceryList(prev => {
+            const updated = [...prev];
+            ingredients.forEach(({ ingredient, measure }) => {
+                const existing = updated.find(
+                    item => item.ingredient.toLowerCase() === ingredient.toLowerCase()
+                );
+                if (existing) {
+                    existing.measures.push({ measure, recipeName });
+                } else {
+                    updated.push({ ingredient, measures: [{ measure, recipeName }] });
+                }
+            });
+            return updated;
+        });
+    };
+
+    const removeFromGroceryList = (ingredientName) => {
+        setGroceryList(prev =>
+            prev.filter(item => item.ingredient.toLowerCase() !== ingredientName.toLowerCase())
+        );
+    };
+
+    const clearGroceryList = () => setGroceryList([]);
+
     return(
         <SearchContext.Provider value={{
             searchQuery, setSearchQuery,
@@ -22,6 +48,10 @@ export const SearchProvider = ({ children }) => {
             searchMode, setSearchMode,
             hasSearched, setHasSearched,
             clearSearch,
+            groceryList,
+            addToGroceryList,
+            removeFromGroceryList,
+            clearGroceryList,
         }}>
             {children}
         </SearchContext.Provider>

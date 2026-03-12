@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchRecipeById } from '../services/api';
 import Navbar from '../components/Navbar';
+import { useSearch } from '../context/SearchContext';
 
 export default function RecipeDetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToGroceryList } = useSearch();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('ingredients');
+  const [addedToList, setAddedToList] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -54,6 +57,7 @@ export default function RecipeDetailPage() {
     return numbered;
   };
 
+
   if (loading) {
     return (
       <div className="page-enter min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
@@ -96,6 +100,10 @@ export default function RecipeDetailPage() {
   const ingredients = getIngredients(recipe);
   const youtubeId = getYouTubeId(recipe.strYoutube);
   const steps = formatInstructions(recipe.strInstructions);
+  const handleAddToGroceryList = () => {
+    addToGroceryList(ingredients, recipe.strMeal);
+    setAddedToList(true);
+  };
 
   return (
     <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
@@ -242,7 +250,7 @@ export default function RecipeDetailPage() {
               {recipe.strTags.split(',').map(tag => tag.trim()).filter(Boolean).map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                  className="px-3 py-2.5 rounded-full text-xs font-medium shadow-sm"
                   style={{ backgroundColor: '#C19A6B', color: '#FFFFFF' }}
                 >
                   #{tag}
@@ -250,7 +258,29 @@ export default function RecipeDetailPage() {
               ))}
             </div>
           )}
-
+          <div className="mt-8 flex items-center gap-3">
+            <button
+              onClick={handleAddToGroceryList}
+              disabled={addedToList}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-100 ease-in-out transform active:translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
+              style={{ backgroundColor: '#F0BE77', color: '#1e1208' }}
+              onMouseEnter={e => { if (!addedToList) e.currentTarget.style.backgroundColor = '#C19A6B' }}
+              onMouseLeave={e => { if (!addedToList) e.currentTarget.style.backgroundColor = '#F0BE77' }}
+            >
+              {addedToList ? '✅ Added to Grocery List' : '🛒 Add to Grocery List'}
+            </button>
+            {addedToList && (
+              <button
+                onClick={() => navigate('/grocery-list')}
+                className="text-sm font-semibold transition-colors underline underline-offset-2"
+                style={{ color: '#B97836' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#1e1208'}
+                onMouseLeave={e => e.currentTarget.style.color = '#B97836'}
+              >
+                View list →
+              </button>
+            )}
+          </div>
         </div>
       </main>
     </div>
