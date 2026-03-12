@@ -1,0 +1,26 @@
+{
+  "name": "sundayprep",
+  "version": "1.0.0",
+  "description": "A website that utilizes TheMealDB to help people find recipes for their personal meal prepping",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikeike34/SundayPrep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mikeike34/SundayPrep/issues"
+  },
+  "homepage": "https://github.com/Mikeike34/SundayPrep#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
