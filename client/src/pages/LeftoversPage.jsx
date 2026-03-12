@@ -79,7 +79,7 @@ export default function LeftoversPage() {
   };
 
   return (
-    <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
+    <div className="page-enter min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
       <Navbar />
 
       <main className="w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">

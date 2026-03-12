@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 export default function NotFoundPage(){
     const navigate = useNavigate();
     return(
-        <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
+        <div className="page-enter min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
             <Navbar />
             <div className="w-full flex items-center justify-center pt-24 px-4">
                 <div className="text-center">

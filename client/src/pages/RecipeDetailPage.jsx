@@ -56,7 +56,7 @@ export default function RecipeDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
+      <div className="page-enter min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
         <Navbar />
         <div className="w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">
           <div className="animate-pulse space-y-6 max-w-5xl mx-auto">
