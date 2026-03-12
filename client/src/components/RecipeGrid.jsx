@@ -31,7 +31,7 @@ export default function RecipeGrid({ recipes, loading }) {
         <button
             key={recipe.idMeal}
             onClick={() => navigate(`/recipe/${recipe.idMeal}`)}
-            className="group text-left flex flex-col w-full"
+            className="group text-left flex flex-col w-full transition-all duration-100 ease-in-out transform active:translate-y-px"
         >
             <div className="relative overflow-hidden rounded-xl aspect-square w-full mb-2"
                 style={{ backgroundColor: '#2e1f0f' }}>

@@ -22,8 +22,8 @@ export default function FeaturedRecipe({ recipe }) {
   }
 
   return (
-    <div className="relative rounded-2xl overflow-hidden border shadow-2xl"
-      style={{ backgroundColor: '#3a2a1a', borderColor: '#B97836' }}>
+    <div className="relative rounded-2xl overflow-hidden shadow-lg"
+      style={{ backgroundColor: '#C19A6B' }}>
       <div className="md:flex md:h-[480px]">
 
         {/* Image — fixed, never grows */}
@@ -50,34 +50,34 @@ export default function FeaturedRecipe({ recipe }) {
           <div className="flex-shrink-0">
             <div className="flex flex-wrap gap-2 mb-3">
               {recipe.strCategory && (
-                <span className="px-2 py-1 text-xs rounded-md"
-                  style={{ backgroundColor: '#2e1f0f', color: '#EFA686' }}>
+                <span className="px-2 py-1 text-b-xs rounded-md"
+                  style={{ backgroundColor: '#FFE6C2', color: '#000000' }}>
                   {recipe.strCategory}
                 </span>
               )}
               {recipe.strArea && (
-                <span className="px-2 py-1 text-xs rounded-md"
-                  style={{ backgroundColor: '#2e1f0f', color: '#EFA686' }}>
+                <span className="px-2 py-1 text-b-xs rounded-md"
+                  style={{ backgroundColor: '#FFE6C2', color: '#000000' }}>
                   {recipe.strArea}
                 </span>
               )}
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight" style={{ color: '#EFDDCD' }}>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight" style={{ color: '#FFFFFF' }}>
               {recipe.strMeal}
             </h2>
 
             <div className="mb-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: '#E6B370' }}>
+              <h3 className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: '#35281E' }}>
                 Ingredients
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#FFCBB2' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#FFFFFF' }}>
                 {ingredients.slice(0, 6).join(' · ')}
                 {ingredients.length > 6 && ` · +${ingredients.length - 6} more`}
               </p>
             </div>
 
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: '#E6B370' }}>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: '#35281E' }}>
               Instructions
             </h3>
           </div>
@@ -92,7 +92,7 @@ export default function FeaturedRecipe({ recipe }) {
               scrollbarColor: '#B97836 #2e1f0f',
             }}
           >
-            <p className="text-sm leading-relaxed" style={{ color: '#EFDDCD' }}>
+            <p className="text-sm leading-relaxed" style={{ color: '#FFFFFF' }}>
               {expanded || !isTruncated ? instructions : `${preview}...`}
             </p>
             {isTruncated && (
@@ -100,7 +100,7 @@ export default function FeaturedRecipe({ recipe }) {
                 onClick={() => setExpanded(!expanded)}
                 className="mt-2 text-sm font-medium transition-colors"
                 style={{ color: '#E6B370' }}
-                onMouseEnter={e => e.target.style.color = '#FFCBB2'}
+                onMouseEnter={e => e.target.style.color = '#FFE6C2'}
                 onMouseLeave={e => e.target.style.color = '#E6B370'}
               >
                 {expanded ? '▲ Show less' : '▼ Show all'}
@@ -112,10 +112,10 @@ export default function FeaturedRecipe({ recipe }) {
           <div className="flex-shrink-0">
             <button
               onClick={() => navigate(`/recipe/${recipe.idMeal}`)}
-              className="w-full py-3 font-bold rounded-xl transition-colors"
-              style={{ backgroundColor: '#E6B370', color: '#1e1208' }}
-              onMouseEnter={e => e.target.style.backgroundColor = '#FFCBB2'}
-              onMouseLeave={e => e.target.style.backgroundColor = '#E6B370'}
+              className="w-full py-3 font-bold rounded-xl transition-colors transition-all duration-100 ease-in-out transform active:translate-y-px"
+              style={{ backgroundColor: '#FFE6C2', color: '#1e1208' }}
+              onMouseEnter={e => e.target.style.backgroundColor = '#F0BE77'}
+              onMouseLeave={e => e.target.style.backgroundColor = '#FFE6C2'}
             >
               View Full Recipe →
             </button>

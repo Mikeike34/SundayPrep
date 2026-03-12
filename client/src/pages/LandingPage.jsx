@@ -27,7 +27,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full" style={{ backgroundColor: '#EFDDCD' }}>
+    <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
       <Navbar />
 
       <main className="w-full min-w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">
@@ -37,9 +37,9 @@ export default function LandingPage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight"
             style={{ color: '#1e1208' }}>
             What are we cooking
-            <span style={{ color: '#B97836' }}> this Sunday?</span>
+            <span style={{ color: '#F0BE77' }}> <br></br> this Sunday?</span>
           </h1>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: '#B97836' }}>
+          <p className="text-lg max-w-xl mx-auto" style={{ color: '#1e1208' }}>
             Find recipes by dish name or ingredient, then prep for the week ahead.
           </p>
         </div>

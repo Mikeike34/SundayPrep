@@ -56,7 +56,7 @@ export default function RecipeDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen w-full" style={{ backgroundColor: '#EFDDCD' }}>
+      <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
         <Navbar />
         <div className="w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">
           <div className="animate-pulse space-y-6 max-w-5xl mx-auto">
@@ -76,7 +76,7 @@ export default function RecipeDetailPage() {
 
   if (error || !recipe) {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: '#EFDDCD' }}>
+      <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: '#FFEFC0' }}>
         <Navbar />
         <div className="text-center pt-24">
           <p className="text-5xl mb-4">😕</p>
@@ -98,7 +98,7 @@ export default function RecipeDetailPage() {
   const steps = formatInstructions(recipe.strInstructions);
 
   return (
-    <div className="min-h-screen w-full" style={{ backgroundColor: '#EFDDCD' }}>
+    <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
       <Navbar />
 
       <main className="w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">
@@ -242,8 +242,8 @@ export default function RecipeDetailPage() {
               {recipe.strTags.split(',').map(tag => tag.trim()).filter(Boolean).map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-medium"
-                  style={{ backgroundColor: '#FFCBB2', color: '#1e1208' }}
+                  className="px-3 py-1 rounded-full text-xs font-medium shadow-sm"
+                  style={{ backgroundColor: '#C19A6B', color: '#FFFFFF' }}
                 >
                   #{tag}
                 </span>

@@ -79,7 +79,7 @@ export default function LeftoversPage() {
   };
 
   return (
-    <div className="min-h-screen w-full" style={{ backgroundColor: '#EFDDCD' }}>
+    <div className="min-h-screen w-full" style={{ backgroundColor: '#FFEFC0' }}>
       <Navbar />
 
       <main className="w-full px-4 sm:px-6 lg:px-10 pt-24 pb-16">
@@ -108,8 +108,8 @@ export default function LeftoversPage() {
           </div>
 
           {/* Input area */}
-          <div className="rounded-2xl p-6 mb-8 border shadow-sm"
-            style={{ backgroundColor: '#fff8f0', borderColor: '#e8d5bf' }}>
+          <div className="rounded-2xl p-6 mb-8 shadow-md"
+            style={{ backgroundColor: '#fff8f0' }}>
 
             <label className="block text-sm font-semibold uppercase tracking-wider mb-3"
               style={{ color: '#B97836' }}>
@@ -125,16 +125,16 @@ export default function LeftoversPage() {
                 placeholder='e.g. "chicken", "garlic", "tomato"'
                 className="flex-1 px-5 py-3 rounded-xl focus:outline-none focus:ring-2 transition-colors"
                 style={{
-                  backgroundColor: '#EFDDCD',
+                  backgroundColor: '#FFE6C2',
                   border: '1px solid #d4c4b0',
                   color: '#1e1208',
                 }}
               />
               <button
                 onClick={addIngredient}
-                className="px-6 py-3 rounded-xl font-bold transition-colors whitespace-nowrap"
+                className="px-6 py-3 rounded-xl font-bold transition-colors whitespace-nowrap shadow-md transition-all duration-100 ease-in-out transform active:translate-y-px"
                 style={{ backgroundColor: '#E6B370', color: '#1e1208' }}
-                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FFCBB2'}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FFE6C2'}
                 onMouseLeave={e => e.currentTarget.style.backgroundColor = '#E6B370'}
               >
                 + Add
@@ -168,17 +168,17 @@ export default function LeftoversPage() {
               <button
                 onClick={handleSearch}
                 disabled={ingredients.length === 0 || loading}
-                className="flex-1 py-3 rounded-xl font-bold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{ backgroundColor: '#B97836', color: '#EFDDCD' }}
-                onMouseEnter={e => { if (ingredients.length > 0) e.currentTarget.style.backgroundColor = '#1e1208' }}
-                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#B97836'}
+                className="flex-1 py-3 rounded-xl shadow-md font-bold transition-colors disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-100 ease-in-out transform active:translate-y-px"
+                style={{ backgroundColor: '#E6B370', color: '#000000' }}
+                onMouseEnter={e => { if (ingredients.length > 0) e.currentTarget.style.backgroundColor = '#FFE6C2' }}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#E6B370'}
               >
                 {loading ? 'Searching...' : `Find Recipes with ${ingredients.length > 0 ? `these ${ingredients.length} ingredient${ingredients.length !== 1 ? 's' : ''}` : 'my ingredients'}`}
               </button>
               {(ingredients.length > 0 || searched) && (
                 <button
                   onClick={handleClear}
-                  className="px-5 py-3 rounded-xl font-semibold text-sm transition-colors border"
+                  className="px-5 py-3 rounded-xl font-semibold text-sm transition-colors border transition-all duration-100 ease-in-out transform active:translate-y-px"
                   style={{ borderColor: '#d4c4b0', color: '#8a6a4a' }}
                   onMouseEnter={e => e.currentTarget.style.borderColor = '#B97836'}
                   onMouseLeave={e => e.currentTarget.style.borderColor = '#d4c4b0'}
@@ -224,7 +224,7 @@ export default function LeftoversPage() {
                   <button
                     key={recipe.idMeal}
                     onClick={() => navigate(`/recipe/${recipe.idMeal}`)}
-                    className="group text-left flex flex-col w-full"
+                    className="group text-left flex flex-col w-full transition-all duration-100 ease-in-out transform active:translate-y-px"
                   >
                     <div className="relative overflow-hidden rounded-xl w-full mb-2"
                       style={{ backgroundColor: '#d4c4b0', aspectRatio: '1 / 1' }}>
